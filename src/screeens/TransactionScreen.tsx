@@ -6,25 +6,13 @@ import {
   ScrollView,
   TextInput,
 } from 'react-native';
+import Header from '../components/Header';
+
 function TransactionScreen({navigation}: {navigation: any}) {
   const width = Dimensions.get('window').width;
   return (
     <View style={{flex: 1, backgroundColor: '#fff'}}>
-      <View
-        style={{
-          width: width,
-          backgroundColor: '#fff',
-          elevation: 1,
-          height: 55,
-          padding: 15,
-          flexDirection: 'row',
-        }}>
-        <Image
-          source={require('../assets/icons/abang_ramen.png')}
-          style={{width: 30, height: 30, marginRight: 15}}
-        />
-        <Text style={{fontSize: 17, fontWeight: '700'}}>Ramen Abang</Text>
-      </View>
+      <Header />
       <ScrollView>
         <View style={{padding: 20}}>
           <Text style={{fontWeight: '700', marginBottom: 7}}>

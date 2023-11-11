@@ -4,26 +4,14 @@ import Icon from 'react-native-vector-icons/FontAwesome6';
 import LinearGradient from 'react-native-linear-gradient';
 import Carousel from 'react-native-reanimated-carousel';
 
+import Header from '../components/Header';
+
 function HomeScreen({navigation}: {navigation: any}) {
   const width = Dimensions.get('window').width;
   const data = ['desktop.jpg', 'desktop.jpg'];
   return (
     <>
-      <View
-        style={{
-          width: width,
-          backgroundColor: '#fff',
-          elevation: 1,
-          height: 55,
-          padding: 15,
-          flexDirection: 'row',
-        }}>
-        <Image
-          source={require('../assets/icons/abang_ramen.png')}
-          style={{width: 30, height: 30, marginRight: 15}}
-        />
-        <Text style={{fontSize: 17, fontWeight: '700'}}>Ramen Abang</Text>
-      </View>
+      <Header />
       <ScrollView>
         <LinearGradient
           colors={['#fa4c64', '#f61c6e', '#ec94a0']}
