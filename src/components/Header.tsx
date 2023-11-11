@@ -1,5 +1,6 @@
-import {Image, View, Text} from 'react-native';
+import {Image, View, Text, Dimensions} from 'react-native';
 function Header() {
+  const width = Dimensions.get('window').width;
   return (
     <View
       style={{

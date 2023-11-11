@@ -24,7 +24,32 @@ function TransactionScreen({navigation}: {navigation: any}) {
               borderBottomWidth: 1,
               marginBottom: 15,
             }}></View>
-          <TextInput style={{borderRadius: 5, backgroundColor: '#e9e9e9'}} />
+          <TextInput
+            style={{
+              borderRadius: 5,
+              backgroundColor: '#e9e9e9',
+              padding: 5,
+              marginVertical: 5,
+            }}
+            placeholder="Nama Pelanggan"
+          />
+          <TextInput
+            style={{
+              borderRadius: 5,
+              backgroundColor: '#e9e9e9',
+              padding: 5,
+              marginVertical: 5,
+            }}
+            placeholder="Tanggal"
+          />
+          <TextInput
+            style={{
+              borderRadius: 5,
+              backgroundColor: '#e9e9e9',
+              padding: 5,
+              marginVertical: 5,
+            }}
+          />
         </View>
       </ScrollView>
     </View>
