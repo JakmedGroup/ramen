@@ -4,14 +4,14 @@ import Icon from 'react-native-vector-icons/FontAwesome6';
 import LinearGradient from 'react-native-linear-gradient';
 import Carousel from 'react-native-reanimated-carousel';
 
-function HomeScreen({navigation}) {
+function HomeScreen({navigation}: {navigation: any}) {
   const width = Dimensions.get('window').width;
   const data = ['desktop.jpg', 'desktop.jpg'];
   return (
     <>
       <View
         style={{
-          width: Dimensions.get('window'),
+          width: width,
           backgroundColor: '#fff',
           elevation: 1,
           height: 55,
@@ -22,7 +22,7 @@ function HomeScreen({navigation}) {
           source={require('../assets/icons/abang_ramen.png')}
           style={{width: 30, height: 30, marginRight: 15}}
         />
-        <Text style={{fontSize: 17, fontWeight: 700}}>Ramen Abang</Text>
+        <Text style={{fontSize: 17, fontWeight: '700'}}>Ramen Abang</Text>
       </View>
       <ScrollView>
         <LinearGradient
@@ -38,18 +38,15 @@ function HomeScreen({navigation}) {
           <View style={{flex: 1, flexDirection: 'row'}}>
             <View style={{flex: 1}}>
               <Text style={{color: '#fff'}}>Penjualan Hari Ini</Text>
-              <Text style={{color: '#fff', fontSize: 22, fontWeight: 700}}>
+              <Text style={{color: '#fff', fontSize: 22, fontWeight: '700'}}>
                 Rp. 300.000,-
               </Text>
             </View>
-            <View
-              style={{
-                flex: 1,
-                alignContent: 'center',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-              <Text style={{color: '#fff'}}>Detail {`>>`}</Text>
+            <View style={{flex: 1}}>
+              <Text style={{color: '#fff'}}>Penjualan Bulan Lalu</Text>
+              <Text style={{color: '#fff', fontSize: 22, fontWeight: '700'}}>
+                Rp. 6.300.000,-
+              </Text>
             </View>
           </View>
         </LinearGradient>
@@ -61,7 +58,7 @@ function HomeScreen({navigation}) {
             borderRadius: 5,
             minHeight: 100,
             padding: 10,
-            width: Dimensions.get('window'),
+            width: width,
           }}>
           <View
             style={{
@@ -134,7 +131,7 @@ function HomeScreen({navigation}) {
 
             minHeight: 100,
 
-            width: Dimensions.get('window'),
+            width: width,
           }}>
           <Carousel
             loop
@@ -143,7 +140,6 @@ function HomeScreen({navigation}) {
             autoPlay={true}
             data={data}
             scrollAnimationDuration={1000}
-            onSnapToItem={index => console.log('current index:', index)}
             renderItem={({index: i}) => {
               return (
                 <View
@@ -169,9 +165,9 @@ function HomeScreen({navigation}) {
             borderRadius: 5,
             minHeight: 100,
             backgroundColor: '#fff',
-            width: Dimensions.get('window'),
+            width: width,
           }}>
-          <Text style={{fontWeight: 700, marginBottom: 10}}>
+          <Text style={{fontWeight: '700', marginBottom: 10}}>
             Produk Terlaris
           </Text>
           <View style={{flexDirection: 'row', flex: 1}}>
@@ -191,7 +187,7 @@ function HomeScreen({navigation}) {
                 style={{
                   fontSize: 9,
                   textAlign: 'center',
-                  fontWeight: 700,
+                  fontWeight: '700',
                   marginTop: 10,
                 }}>
                 Chicken Soyu
@@ -213,7 +209,7 @@ function HomeScreen({navigation}) {
                 style={{
                   fontSize: 9,
                   textAlign: 'center',
-                  fontWeight: 700,
+                  fontWeight: '700',
                   marginTop: 10,
                 }}>
                 Mushroom
@@ -235,7 +231,7 @@ function HomeScreen({navigation}) {
                 style={{
                   fontSize: 9,
                   textAlign: 'center',
-                  fontWeight: 700,
+                  fontWeight: '700',
                   marginTop: 10,
                 }}>
                 Plain Soyu
@@ -257,7 +253,7 @@ function HomeScreen({navigation}) {
                 style={{
                   fontSize: 9,
                   textAlign: 'center',
-                  fontWeight: 700,
+                  fontWeight: '700',
                   marginTop: 10,
                 }}>
                 Spicy Miso
@@ -269,6 +265,7 @@ function HomeScreen({navigation}) {
       <View
         style={{alignItems: 'center', justifyContent: 'center', padding: 20}}>
         <TouchableOpacity
+          onPress={() => navigation.navigate('TransactionScreen')}
           style={{
             backgroundColor: '#fa4c64',
             paddingHorizontal: 20,

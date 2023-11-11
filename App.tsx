@@ -18,6 +18,7 @@ import Icon from 'react-native-vector-icons/FontAwesome6';
 import HomeScreen from './src/screeens/HomeScreen';
 import DetailsScreen from './src/screeens/DetailScreen';
 import FeedScreen from './src/screeens/FeedScreen';
+import TransactionScreen from './src/screeens/TransactionScreen';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -55,6 +56,11 @@ function App(): JSX.Element {
           options={{headerShown: false}}
         />
         <Stack.Screen name="FeedScreen" component={FeedScreen} />
+        <Stack.Screen
+          name="TransactionScreen"
+          component={TransactionScreen}
+          options={{title: 'Transaksi'}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
