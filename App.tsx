@@ -7,11 +7,12 @@
 
 import React from 'react';
 
-import {StatusBar} from 'react-native';
+import {StatusBar, Button, Alert} from 'react-native';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import Icon from 'react-native-vector-icons/FontAwesome6';
 
 // SCREENS
 import HomeScreen from './src/screeens/HomeScreen';
@@ -26,7 +27,18 @@ function Root() {
       <Drawer.Screen
         name="Home"
         component={HomeScreen}
-        options={{title: 'Beranda'}}
+        options={{
+          title: 'Beranda',
+          headerRight: () => (
+            <Icon
+              onPress={() => Alert.alert('This is a button!')}
+              name="bell"
+              color="#999"
+              style={{marginRight: 15}}
+              size={20}
+            />
+          ),
+        }}
       />
       <Drawer.Screen name="Details" component={DetailsScreen} />
     </Drawer.Navigator>
