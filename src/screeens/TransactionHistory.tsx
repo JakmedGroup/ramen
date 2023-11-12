@@ -12,48 +12,119 @@ import Icon from 'react-native-vector-icons/FontAwesome6';
 
 type ItemProps = {
   date: string;
+  items: string;
   trx: string;
   qty: number;
   total: number;
+  status: string;
 };
-const Item = ({date, trx, qty, total}: ItemProps) => (
-  <View
-    style={{
-      flex: 1,
-      flexDirection: 'row',
-      padding: 15,
-      borderRadius: 5,
-      borderWidth: 1,
-      borderColor: '#ccc',
-      marginVertical: 7,
-    }}>
-    <Text style={{flex: 1}}>{trx}</Text>
-    <Text style={{flex: 1}}>{date}</Text>
-    <Text style={{flex: 1}}>QTY: {qty}</Text>
-    <Text style={{flex: 1}}>Rp{total.toLocaleString('id-ID')}</Text>
-    <TouchableOpacity
+const Item = ({date, items, trx, qty, total, status}: ItemProps) => {
+  let statusColor = '';
+  if (status == 'berhasil') {
+    statusColor = 'green';
+  } else if (status == 'batal') {
+    statusColor = 'orange';
+  } else {
+    statusColor = 'gray';
+  }
+  return (
+    <View
       style={{
-        backgroundColor: 'green',
-        padding: 5,
-        marginLeft: 10,
+        flex: 1,
+        padding: 10,
         borderRadius: 5,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        marginVertical: 7,
       }}>
-      <Icon name="eye" size={20} style={{color: 'white'}} />
-    </TouchableOpacity>
-  </View>
-);
+      <View style={{flexDirection: 'row'}}>
+        <View>
+          <Text style={{flex: 1, fontWeight: '700'}}>#{trx}</Text>
+          <Text style={{flex: 1}}>{date}</Text>
+        </View>
+        <View
+          style={{
+            flex: 1,
+            alignContent: 'flex-end',
+          }}>
+          <View style={{alignItems: 'flex-end'}}>
+            <Text
+              style={{
+                textAlign: 'right',
+                backgroundColor: statusColor,
+                color: 'white',
+                padding: 5,
+                borderRadius: 6,
+              }}>
+              {status.toUpperCase()}
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={{
+          flex: 1,
+          height: 1,
+          backgroundColor: '#ccc',
+
+          marginVertical: 7,
+        }}
+      />
+      <Text>{items}</Text>
+      <Text style={{flex: 1}}>QTY: {qty}</Text>
+      <Text style={{flex: 1, fontWeight: '700'}}>
+        Total Harga: Rp{total.toLocaleString('id-ID')}
+      </Text>
+    </View>
+  );
+};
 const TransactionHistory = () => {
   const width = Dimensions.get('window').width;
   const data = [
-    {date: '23-10-01', trx: '0001', qty: 2, total: 200000},
-    {date: '23-10-02', trx: '0002', qty: 2, total: 200000},
-    {date: '23-10-03', trx: '0003', qty: 2, total: 200000},
-    {date: '23-10-04', trx: '0004', qty: 2, total: 200000},
-    {date: '23-10-05', trx: '0005', qty: 2, total: 200000},
+    {
+      date: '2023-10-01',
+      items: 'Mushroom,Chicken Soyu',
+      trx: '0001',
+      qty: 2,
+      total: 200000,
+      status: 'berhasil',
+    },
+    {
+      date: '2023-10-02',
+      items: 'Chicken Soyu,Mushroom',
+      trx: '0002',
+      qty: 2,
+      total: 200000,
+      status: 'pending',
+    },
+    {
+      date: '2023-10-03',
+      items: 'Chicken Soyu,Plain Soyu,Mushroom ...',
+      trx: '0003',
+      qty: 5,
+      total: 350000,
+      status: 'batal',
+    },
+    {
+      date: '2023-10-04',
+      items: 'Chicken Soyu,Mushroom',
+      trx: '0004',
+      qty: 2,
+      total: 200000,
+      status: 'berhasil',
+    },
+    {
+      date: '2023-10-05',
+      items: 'Plain Soyu,Chicken Soyu,Mushroom',
+      trx: '0005',
+      qty: 3,
+      total: 200000,
+      status: 'berhasil',
+    },
   ];
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <SafeAreaView style={{backgroundColor: '#fff', padding: 20}}>
         <TextInput
           placeholder="Cari Transaksi..."
@@ -80,12 +151,14 @@ const TransactionHistory = () => {
           renderItem={({item}) => (
             <Item
               date={item.date}
+              items={item.items}
               trx={item.trx}
               qty={item.qty}
               total={item.total}
+              status={item.status}
             />
           )}
-          style={{height: Dimensions.get('window').height}}
+          style={{height: Dimensions.get('window').height / 1.4}}
         />
       </SafeAreaView>
     </>

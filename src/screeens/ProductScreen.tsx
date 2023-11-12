@@ -1,51 +1,90 @@
 import {
   Dimensions,
   FlatList,
+  Image,
   SafeAreaView,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import Header from '../components/Header';
 
 type ItemProps = {
-  date: string;
-  trx: string;
+  name: string;
+  image: string;
   qty: number;
-  total: number;
+  price: number;
 };
-const Item = ({date, trx, qty, total}: ItemProps) => (
+const width = Dimensions.get('window').width;
+const Item = ({name, image, qty, price}: ItemProps) => (
   <View
     style={{
-      flex: 1,
-      flexDirection: 'row',
-      padding: 15,
       borderRadius: 5,
-      borderWidth: 1,
+      marginRight: 16,
+      marginTop: 6,
+      marginBottom: 6,
+      padding: 5,
+      borderWidth: 0.5,
       borderColor: '#ccc',
-      marginVertical: 7,
+      width: width / 5,
     }}>
-    <Text style={{flex: 1}}>{trx}</Text>
-    <Text style={{flex: 1}}>{date}</Text>
-    <Text style={{flex: 1, marginLeft: 10}}>QTY: {qty}</Text>
-    <Text style={{flex: 1}}>Rp{total.toLocaleString('id-ID')}</Text>
+    <Image
+      source={require('../assets/images/products/ramen-1.jpg')}
+      style={{width: width / 6, height: width / 6, alignItems: 'center'}}
+    />
+    <Text
+      style={{
+        fontSize: 9,
+        textAlign: 'center',
+        fontWeight: '700',
+        marginTop: 10,
+      }}>
+      Chicken Soyu
+    </Text>
+    <Text style={{fontWeight: '700', textAlign: 'center'}}>Rp42.000</Text>
   </View>
 );
-const ProductScreen = () => {
+const ProductScreen = ({navigation}: {navigation: any}) => {
   const width = Dimensions.get('window').width;
   const data = [
-    {date: '2023-10-01', trx: '0001', qty: 2, total: 200000},
-    {date: '2023-10-02', trx: '0002', qty: 2, total: 200000},
-    {date: '2023-10-03', trx: '0003', qty: 2, total: 200000},
-    {date: '2023-10-04', trx: '0004', qty: 2, total: 200000},
-    {date: '2023-10-05', trx: '0005', qty: 2, total: 200000},
+    {
+      name: 'Chicken Soyu',
+      image: '../assets/images/products/ramen-1.jpg',
+      qty: 2,
+      price: 42000,
+    },
+    {
+      name: 'Mushroom',
+      image: '../assets/images/products/ramen-2.jpg',
+      qty: 2,
+      price: 52000,
+    },
+    {
+      name: 'Plain Chicken',
+      image: '../assets/images/products/ramen-1.jpg',
+      qty: 2,
+      price: 200000,
+    },
+    {
+      name: '2023-10-04',
+      image: '../assets/images/products/ramen-1.jpg',
+      qty: 2,
+      price: 200000,
+    },
+    {
+      name: '2023-10-05',
+      image: '../assets/images/products/ramen-1.jpg',
+      qty: 2,
+      price: 200000,
+    },
   ];
   return (
     <>
       <Header />
-      <SafeAreaView style={{backgroundColor: '#fff', padding: 20}}>
+      <SafeAreaView style={{backgroundColor: '#fff', padding: 15}}>
         <TextInput
-          placeholder="Cari Transaksi..."
+          placeholder="Cari Produk..."
           style={{
             padding: 10,
             paddingHorizontal: 15,
@@ -66,17 +105,46 @@ const ProductScreen = () => {
         />
         <FlatList
           data={data}
+          numColumns={4}
           renderItem={({item}) => (
-            <Item
-              date={item.date}
-              trx={item.trx}
-              qty={item.qty}
-              total={item.total}
-            />
+            <View
+              style={{
+                borderRadius: 10,
+                flexDirection: 'row',
+              }}
+              key={item.image}>
+              <Item
+                name={item.name}
+                image={item.image}
+                qty={item.qty}
+                price={item.price}
+              />
+            </View>
           )}
-          style={{height: Dimensions.get('window').height}}
+          style={{height: Dimensions.get('window').height / 1.7}}
         />
       </SafeAreaView>
+      <View
+        style={{
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: 20,
+          bottom: 0,
+        }}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('ProductAdd')}
+          style={{
+            backgroundColor: '#fa4c64',
+            paddingHorizontal: 20,
+            paddingVertical: 15,
+            borderRadius: 10,
+            width: 300,
+          }}>
+          <Text style={{color: '#fff', textAlign: 'center'}}>
+            Tambah Produk
+          </Text>
+        </TouchableOpacity>
+      </View>
     </>
   );
 };

@@ -77,7 +77,7 @@ const InvoiceScreen: React.FC<Props> = ({
             }}>
             <Text style={{flex: 1}}>Item</Text>
             <Text style={{flex: 1}}>QTY</Text>
-            <Text style={{flex: 1, textAlign: 'right'}}>Price</Text>
+            <Text style={{flex: 1, textAlign: 'right'}}>Harga</Text>
           </View>
           <View
             style={{
@@ -183,7 +183,7 @@ const InvoiceScreen: React.FC<Props> = ({
               alignItems: 'center',
               marginTop: 10,
             }}>
-            <Text style={{flex: 1}}>Payment Method</Text>
+            <Text style={{flex: 1}}>Metode Pembyaran</Text>
 
             <Text
               style={{

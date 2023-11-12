@@ -92,7 +92,8 @@ function HomeScreen({navigation}: {navigation: any}) {
                 justifyContent: 'center',
                 margin: 5,
                 flex: 1,
-              }}>
+              }}
+              onPress={() => navigation.navigate('OutletScreen')}>
               <Icon name="store" size={30} color="#cf1831" />
               <Text style={{fontSize: 11, textAlign: 'center', marginTop: 10}}>
                 Kelola Outlet
@@ -106,10 +107,11 @@ function HomeScreen({navigation}: {navigation: any}) {
                 justifyContent: 'center',
                 margin: 5,
                 flex: 1,
-              }}>
+              }}
+              onPress={() => navigation.navigate('SettingScreen')}>
               <Icon name="gears" size={30} color="#cf1831" />
               <Text style={{fontSize: 11, textAlign: 'center', marginTop: 10}}>
-                Pengaturan Toko
+                Pengaturan Aplikasi
               </Text>
             </TouchableOpacity>
           </View>

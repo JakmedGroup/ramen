@@ -24,6 +24,10 @@ import ConfirmationScreen from './src/screeens/ConfirmationScreen';
 import InvoiceScreen from './src/screeens/InvoiceScreen';
 import TransactionHistory from './src/screeens/TransactionHistory';
 import ProductScreen from './src/screeens/ProductScreen';
+import ProductAdd from './src/screeens/ProductAdd';
+import OutletScreen from './src/screeens/OutletScreen';
+import OutletAdd from './src/screeens/OutletAdd';
+import SettingScreen from './src/screeens/SettingScreen';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -49,7 +53,11 @@ function Root() {
           ),
         }}
       />
-      <Drawer.Screen name="Details" component={DetailsScreen} />
+      <Drawer.Screen
+        name="Details"
+        component={DetailsScreen}
+        options={{title: 'About'}}
+      />
     </Drawer.Navigator>
   );
 }
@@ -92,7 +100,7 @@ function App(): JSX.Element {
           name="TransactionHistory"
           component={TransactionHistory}
           options={{
-            title: 'Riwayat Transaksi',
+            title: 'Riwayat Penjualan',
           }}
         />
         <Stack.Screen
@@ -100,6 +108,34 @@ function App(): JSX.Element {
           component={ProductScreen}
           options={{
             title: 'Kelola Produk',
+          }}
+        />
+        <Stack.Screen
+          name="ProductAdd"
+          component={ProductAdd}
+          options={{
+            title: 'Tambah Produk',
+          }}
+        />
+        <Stack.Screen
+          name="OutletScreen"
+          component={OutletScreen}
+          options={{
+            title: 'Kelola Outlet',
+          }}
+        />
+        <Stack.Screen
+          name="OutletAdd"
+          component={OutletAdd}
+          options={{
+            title: 'Tambah Outlet',
+          }}
+        />
+        <Stack.Screen
+          name="SettingScreen"
+          component={SettingScreen}
+          options={{
+            title: 'Pengaturan Aplikasi',
           }}
         />
       </Stack.Navigator>
