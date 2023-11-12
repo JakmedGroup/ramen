@@ -12,7 +12,7 @@ function HomeScreen({navigation}: {navigation: any}) {
   return (
     <>
       <Header />
-      <ScrollView>
+      <ScrollView style={{backgroundColor: '#fff'}}>
         <LinearGradient
           colors={['#fa4c64', '#f61c6e', '#ec94a0']}
           style={{
@@ -46,7 +46,6 @@ function HomeScreen({navigation}: {navigation: any}) {
             borderRadius: 5,
             minHeight: 100,
             padding: 10,
-            width: width,
           }}>
           <View
             style={{
@@ -61,9 +60,10 @@ function HomeScreen({navigation}: {navigation: any}) {
                 borderRadius: 10,
                 alignItems: 'center',
                 justifyContent: 'center',
-                margin: 10,
+                margin: 5,
                 flex: 1,
-              }}>
+              }}
+              onPress={() => navigation.navigate('TransactionHistory')}>
               <Icon name="cash-register" size={30} color="#cf1831" />
               <Text style={{fontSize: 11, textAlign: 'center', marginTop: 10}}>
                 Riwayat Penjualan
@@ -75,9 +75,10 @@ function HomeScreen({navigation}: {navigation: any}) {
                 borderRadius: 10,
                 alignItems: 'center',
                 justifyContent: 'center',
-                margin: 10,
+                margin: 5,
                 flex: 1,
-              }}>
+              }}
+              onPress={() => navigation.navigate('ProductScreen')}>
               <Icon name="cart-flatbed" size={30} color="#cf1831" />
               <Text style={{fontSize: 11, textAlign: 'center', marginTop: 10}}>
                 Kelola Produk
@@ -89,7 +90,7 @@ function HomeScreen({navigation}: {navigation: any}) {
                 borderRadius: 10,
                 alignItems: 'center',
                 justifyContent: 'center',
-                margin: 10,
+                margin: 5,
                 flex: 1,
               }}>
               <Icon name="store" size={30} color="#cf1831" />
@@ -103,7 +104,7 @@ function HomeScreen({navigation}: {navigation: any}) {
                 borderRadius: 10,
                 alignItems: 'center',
                 justifyContent: 'center',
-                margin: 10,
+                margin: 5,
                 flex: 1,
               }}>
               <Icon name="gears" size={30} color="#cf1831" />
@@ -153,7 +154,6 @@ function HomeScreen({navigation}: {navigation: any}) {
             borderRadius: 5,
             minHeight: 100,
             backgroundColor: '#fff',
-            width: width,
           }}>
           <Text style={{fontWeight: '700', marginBottom: 10}}>
             Produk Terlaris

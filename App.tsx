@@ -19,9 +19,15 @@ import HomeScreen from './src/screeens/HomeScreen';
 import DetailsScreen from './src/screeens/DetailScreen';
 import FeedScreen from './src/screeens/FeedScreen';
 import TransactionScreen from './src/screeens/TransactionScreen';
+import PaymentScreen from './src/screeens/PaymentScreen';
+import ConfirmationScreen from './src/screeens/ConfirmationScreen';
+import InvoiceScreen from './src/screeens/InvoiceScreen';
+import TransactionHistory from './src/screeens/TransactionHistory';
+import ProductScreen from './src/screeens/ProductScreen';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
+
 function Root() {
   return (
     <Drawer.Navigator>
@@ -32,7 +38,9 @@ function Root() {
           title: 'Beranda',
           headerRight: () => (
             <Icon
-              onPress={() => Alert.alert('This is a button!')}
+              onPress={() =>
+                Alert.alert('Notification', 'Tidak ada notifikasi baru')
+              }
               name="bell"
               color="#999"
               style={{marginRight: 15}}
@@ -59,7 +67,40 @@ function App(): JSX.Element {
         <Stack.Screen
           name="TransactionScreen"
           component={TransactionScreen}
+          initialParams={{navigation: 'Root', payment: 'cash'}}
           options={{title: 'Transaksi'}}
+        />
+        <Stack.Screen
+          name="PaymentScreen"
+          component={PaymentScreen}
+          options={{title: 'Pembayaran'}}
+        />
+        <Stack.Screen
+          name="ConfirmationScreen"
+          component={ConfirmationScreen}
+          options={{title: 'Konfirmasi Pembayaran'}}
+        />
+        <Stack.Screen
+          name="InvoiceScreen"
+          component={InvoiceScreen}
+          options={{
+            title: 'Cetak Struk',
+            headerLeft: () => <></>,
+          }}
+        />
+        <Stack.Screen
+          name="TransactionHistory"
+          component={TransactionHistory}
+          options={{
+            title: 'Riwayat Transaksi',
+          }}
+        />
+        <Stack.Screen
+          name="ProductScreen"
+          component={ProductScreen}
+          options={{
+            title: 'Kelola Produk',
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
