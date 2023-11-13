@@ -24,8 +24,7 @@ const TransactionScreen: React.FC<Props> = ({
   route: any;
 }) => {
   const [pelanggan, setPelanggan] = useState('');
-  const [type, setType] = useState('');
-  const [modalVisible, setModalVisible] = useState(false);
+  const [selected, setSelected] = useState('');
   const width = Dimensions.get('window').width;
   return (
     <>
@@ -42,7 +41,20 @@ const TransactionScreen: React.FC<Props> = ({
               borderBottomWidth: 1,
               marginBottom: 10,
             }}></View>
-
+          <View style={{flex: 1, flexDirection: 'row', marginVertical: 15}}>
+            <TouchableOpacity
+              style={{flexDirection: 'row', flex: 1}}
+              onPress={() => setSelected('takeaway')}>
+              <RadioButton selected={selected == 'takeaway' ? true : false} />
+              <Text style={{marginHorizontal: 10}}>Take Away</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{flexDirection: 'row', flex: 1}}
+              onPress={() => setSelected('dinein')}>
+              <RadioButton selected={selected == 'dinein' ? true : false} />
+              <Text style={{marginHorizontal: 10}}>Dine In</Text>
+            </TouchableOpacity>
+          </View>
           <TextInput
             style={{
               borderRadius: 5,
@@ -54,18 +66,6 @@ const TransactionScreen: React.FC<Props> = ({
             value={pelanggan}
             onChangeText={e => setPelanggan(e)}
             placeholder="Nama Pelanggan"
-          />
-          <TextInput
-            style={{
-              borderRadius: 5,
-              borderWidth: 1,
-              borderColor: '#ccc',
-              padding: 5,
-              marginVertical: 5,
-            }}
-            value={type}
-            placeholder="Jenis Pesanan"
-            onPressIn={() => setModalVisible(true)}
           />
           <TextInput
             style={{
@@ -448,33 +448,6 @@ const TransactionScreen: React.FC<Props> = ({
           </Text>
         </TouchableOpacity>
       </View>
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
-        }}>
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Pressable
-              onPress={() => {
-                setModalVisible(!modalVisible);
-                setType('Take Away');
-              }}>
-              <Text style={styles.textStyle}>Take Away</Text>
-            </Pressable>
-            <Pressable
-              onPress={() => {
-                setModalVisible(!modalVisible);
-                setType('Dine In');
-              }}>
-              <Text style={styles.textStyle}>Dine In</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
     </>
   );
 };
@@ -521,5 +494,32 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
 });
-
+function RadioButton(props: any) {
+  return (
+    <View
+      style={[
+        {
+          height: 24,
+          width: 24,
+          borderRadius: 12,
+          borderWidth: 2,
+          borderColor: '#000',
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
+        props.style,
+      ]}>
+      {props.selected ? (
+        <View
+          style={{
+            height: 12,
+            width: 12,
+            borderRadius: 6,
+            backgroundColor: '#000',
+          }}
+        />
+      ) : null}
+    </View>
+  );
+}
 export default TransactionScreen;
