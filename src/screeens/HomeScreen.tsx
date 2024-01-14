@@ -31,7 +31,7 @@ function HomeScreen({navigation}: {navigation: any}) {
               </Text>
             </View>
             <View style={{flex: 1}}>
-              <Text style={{color: '#fff'}}>Penjualan Bulan Lalu</Text>
+              <Text style={{color: '#fff'}}>Total Penjualan</Text>
               <Text style={{color: '#fff', fontSize: 22, fontWeight: '700'}}>
                 Rp. 6.300.000,-
               </Text>
@@ -65,7 +65,13 @@ function HomeScreen({navigation}: {navigation: any}) {
               }}
               onPress={() => navigation.navigate('TransactionHistory')}>
               <Icon name="cash-register" size={30} color="#cf1831" />
-              <Text style={{fontSize: 11, textAlign: 'center', marginTop: 10}}>
+              <Text
+                style={{
+                  fontSize: 11,
+                  textAlign: 'center',
+                  color: '#000',
+                  marginTop: 10,
+                }}>
                 Riwayat Penjualan
               </Text>
             </TouchableOpacity>
@@ -80,7 +86,13 @@ function HomeScreen({navigation}: {navigation: any}) {
               }}
               onPress={() => navigation.navigate('ProductScreen')}>
               <Icon name="cart-flatbed" size={30} color="#cf1831" />
-              <Text style={{fontSize: 11, textAlign: 'center', marginTop: 10}}>
+              <Text
+                style={{
+                  fontSize: 11,
+                  textAlign: 'center',
+                  color: '#000',
+                  marginTop: 10,
+                }}>
                 Kelola Produk
               </Text>
             </TouchableOpacity>
@@ -95,7 +107,13 @@ function HomeScreen({navigation}: {navigation: any}) {
               }}
               onPress={() => navigation.navigate('OutletScreen')}>
               <Icon name="store" size={30} color="#cf1831" />
-              <Text style={{fontSize: 11, textAlign: 'center', marginTop: 10}}>
+              <Text
+                style={{
+                  fontSize: 11,
+                  textAlign: 'center',
+                  color: '#000',
+                  marginTop: 10,
+                }}>
                 Kelola Outlet
               </Text>
             </TouchableOpacity>
@@ -109,9 +127,15 @@ function HomeScreen({navigation}: {navigation: any}) {
                 flex: 1,
               }}
               onPress={() => navigation.navigate('SettingScreen')}>
-              <Icon name="gears" size={30} color="#cf1831" />
-              <Text style={{fontSize: 11, textAlign: 'center', marginTop: 10}}>
-                Pengaturan Aplikasi
+              <Icon name="money-bill-transfer" size={30} color="#cf1831" />
+              <Text
+                style={{
+                  fontSize: 11,
+                  textAlign: 'center',
+                  color: '#000',
+                  marginTop: 10,
+                }}>
+                Total Penjualan
               </Text>
             </TouchableOpacity>
           </View>
@@ -148,7 +172,7 @@ function HomeScreen({navigation}: {navigation: any}) {
             }}
           />
         </View>
-        <View
+        {/* <View
           style={{
             elevation: 2,
             margin: 10,
@@ -176,7 +200,7 @@ function HomeScreen({navigation}: {navigation: any}) {
               <Text
                 style={{
                   fontSize: 9,
-                  textAlign: 'center',
+                  textAlign: 'center',color: '#000',
                   fontWeight: '700',
                   marginTop: 10,
                 }}>
@@ -198,7 +222,7 @@ function HomeScreen({navigation}: {navigation: any}) {
               <Text
                 style={{
                   fontSize: 9,
-                  textAlign: 'center',
+                  textAlign: 'center',color: '#000',
                   fontWeight: '700',
                   marginTop: 10,
                 }}>
@@ -220,7 +244,7 @@ function HomeScreen({navigation}: {navigation: any}) {
               <Text
                 style={{
                   fontSize: 9,
-                  textAlign: 'center',
+                  textAlign: 'center',color: '#000',
                   fontWeight: '700',
                   marginTop: 10,
                 }}>
@@ -242,7 +266,7 @@ function HomeScreen({navigation}: {navigation: any}) {
               <Text
                 style={{
                   fontSize: 9,
-                  textAlign: 'center',
+                  textAlign: 'center',color: '#000',
                   fontWeight: '700',
                   marginTop: 10,
                 }}>
@@ -250,7 +274,7 @@ function HomeScreen({navigation}: {navigation: any}) {
               </Text>
             </View>
           </View>
-        </View>
+        </View> */}
       </ScrollView>
       <View
         style={{alignItems: 'center', justifyContent: 'center', padding: 20}}>

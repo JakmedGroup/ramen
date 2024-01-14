@@ -102,6 +102,7 @@ const TransactionScreen: React.FC<Props> = ({
                   style={{
                     fontSize: 9,
                     textAlign: 'center',
+                    color: '#000',
                     fontWeight: '700',
                     marginTop: 10,
                   }}>
@@ -126,6 +127,7 @@ const TransactionScreen: React.FC<Props> = ({
                   style={{
                     fontSize: 9,
                     textAlign: 'center',
+                    color: '#000',
                     fontWeight: '700',
                     marginTop: 10,
                   }}>
@@ -150,6 +152,7 @@ const TransactionScreen: React.FC<Props> = ({
                   style={{
                     fontSize: 9,
                     textAlign: 'center',
+                    color: '#000',
                     fontWeight: '700',
                     marginTop: 10,
                   }}>
@@ -174,6 +177,7 @@ const TransactionScreen: React.FC<Props> = ({
                   style={{
                     fontSize: 9,
                     textAlign: 'center',
+                    color: '#000',
                     fontWeight: '700',
                     marginTop: 10,
                   }}>
@@ -206,6 +210,7 @@ const TransactionScreen: React.FC<Props> = ({
                   style={{
                     fontSize: 9,
                     textAlign: 'center',
+                    color: '#000',
                     fontWeight: '700',
                     marginTop: 10,
                   }}>
@@ -230,6 +235,7 @@ const TransactionScreen: React.FC<Props> = ({
                   style={{
                     fontSize: 9,
                     textAlign: 'center',
+                    color: '#000',
                     fontWeight: '700',
                     marginTop: 10,
                   }}>
@@ -254,6 +260,7 @@ const TransactionScreen: React.FC<Props> = ({
                   style={{
                     fontSize: 9,
                     textAlign: 'center',
+                    color: '#000',
                     fontWeight: '700',
                     marginTop: 10,
                   }}>
@@ -278,6 +285,7 @@ const TransactionScreen: React.FC<Props> = ({
                   style={{
                     fontSize: 9,
                     textAlign: 'center',
+                    color: '#000',
                     fontWeight: '700',
                     marginTop: 10,
                   }}>
@@ -324,6 +332,7 @@ const TransactionScreen: React.FC<Props> = ({
                 fontSize: 15,
                 padding: 4,
                 textAlign: 'center',
+                color: '#000',
               }}
             />
             <TouchableOpacity style={{marginHorizontal: 5}}>
@@ -361,6 +370,7 @@ const TransactionScreen: React.FC<Props> = ({
                 fontSize: 15,
                 padding: 4,
                 textAlign: 'center',
+                color: '#000',
               }}
             />
             <TouchableOpacity style={{marginHorizontal: 5}}>

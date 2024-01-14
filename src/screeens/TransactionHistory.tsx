@@ -1,4 +1,5 @@
 import {
+  Button,
   Dimensions,
   FlatList,
   SafeAreaView,
@@ -7,8 +8,10 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import DatePicker from 'react-native-date-picker';
 import Header from '../components/Header';
 import Icon from 'react-native-vector-icons/FontAwesome6';
+import {useState} from 'react';
 
 type ItemProps = {
   date: string;
@@ -80,6 +83,8 @@ const Item = ({date, items, trx, qty, total, status}: ItemProps) => {
 };
 const TransactionHistory = () => {
   const width = Dimensions.get('window').width;
+  const [date, setDate] = useState(new Date());
+  const [open, setOpen] = useState(false);
   const data = [
     {
       date: '2023-10-01',
@@ -126,17 +131,49 @@ const TransactionHistory = () => {
     <>
       {/* <Header /> */}
       <SafeAreaView style={{backgroundColor: '#fff', padding: 20}}>
-        <TextInput
-          placeholder="Cari Transaksi..."
-          style={{
-            padding: 10,
-            paddingHorizontal: 15,
-            shadowOpacity: 0.5,
-            borderRadius: 5,
-            borderWidth: 1,
-            borderColor: '#ccc',
-          }}
-        />
+        <View style={{flexDirection: 'row'}}>
+          <View style={{width: width / 2.2}}>
+            <TextInput
+              placeholder="Cari Tanggal"
+              onFocus={() => setOpen(true)}
+              style={{
+                padding: 10,
+                paddingHorizontal: 15,
+                shadowOpacity: 0.5,
+                borderRadius: 5,
+                borderWidth: 1,
+                borderColor: '#ccc',
+                marginRight: 25,
+              }}
+            />
+            <DatePicker
+              modal
+              open={open}
+              date={date}
+              onConfirm={date => {
+                setOpen(false);
+                setDate(date);
+              }}
+              onCancel={() => {
+                setOpen(false);
+              }}
+            />
+          </View>
+          <View style={{width: width / 2.2}}>
+            <TextInput
+              placeholder="Cari Transaksi..."
+              style={{
+                padding: 10,
+                paddingHorizontal: 15,
+                shadowOpacity: 0.5,
+                borderRadius: 5,
+                borderWidth: 1,
+                borderColor: '#ccc',
+              }}
+            />
+          </View>
+        </View>
+
         <View
           style={{
             flex: 1,

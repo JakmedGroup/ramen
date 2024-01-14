@@ -16,6 +16,7 @@ import Icon from 'react-native-vector-icons/FontAwesome6';
 
 // SCREENS
 import HomeScreen from './src/screeens/HomeScreen';
+import LoginScreen from './src/screeens/LoginScreen';
 import DetailsScreen from './src/screeens/DetailScreen';
 import FeedScreen from './src/screeens/FeedScreen';
 import TransactionScreen from './src/screeens/TransactionScreen';
@@ -54,6 +55,11 @@ function Root() {
         }}
       />
       <Drawer.Screen
+        name="Settings"
+        component={SettingScreen}
+        options={{title: 'Setting'}}
+      />
+      <Drawer.Screen
         name="Details"
         component={DetailsScreen}
         options={{title: 'About'}}
@@ -66,6 +72,11 @@ function App(): JSX.Element {
     <NavigationContainer>
       <StatusBar />
       <Stack.Navigator>
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name="Root"
           component={Root}

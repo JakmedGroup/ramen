@@ -144,7 +144,7 @@ const ConfirmationScreen: React.FC<Props> = ({
             borderRadius: 10,
             width: 300,
           }}>
-          <Text style={{color: '#fff', textAlign: 'center'}}>
+          <Text style={{color: '#fff', textAlign: 'center',color: '#000',}}>
             Konfirmasi Pembayaran
           </Text>
         </TouchableOpacity>

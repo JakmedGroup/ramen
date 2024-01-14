@@ -15,10 +15,10 @@ import Header from '../components/Header';
 import {useCallback, useState} from 'react';
 import {CameraButton} from '../components/CameraButton';
 
-const width = Dimensions.get('window').width;
 const includeExtra = true;
 const SettingScreen = ({navigation}: {navigation: any}) => {
   const width = Dimensions.get('window').width;
+  const height = Dimensions.get('window').height;
   const [modalVisible, setModalVisible] = useState(false);
   const [response, setResponse] = useState<any>(null);
   const onButtonPress = useCallback((type: any, options: any) => {
@@ -36,7 +36,8 @@ const SettingScreen = ({navigation}: {navigation: any}) => {
         height: Dimensions.get('window').height,
       }}>
       <Header />
-      <SafeAreaView style={{backgroundColor: '#fff', padding: 15}}>
+      <SafeAreaView
+        style={{backgroundColor: '#fff', padding: 15, height: height / 1.35}}>
         <Text style={{fontSize: 18, fontWeight: '700'}}>Upload Logo</Text>
         <View style={styles.buttonContainer}>
           {actions.map(({title, type, options}) => {
@@ -88,21 +89,23 @@ const SettingScreen = ({navigation}: {navigation: any}) => {
             borderColor: '#ccc',
           }}
         />
-        <View style={{alignItems: 'center', marginTop: 20}}>
-          <TouchableOpacity
-            style={{
-              backgroundColor: 'green',
-              width: 200,
-              padding: 10,
-              borderRadius: 10,
-            }}
-            onPress={() => setModalVisible(true)}>
-            <Text style={{textAlign: 'center', color: '#fff'}}>
-              Simpan Pengaturan
-            </Text>
-          </TouchableOpacity>
-        </View>
       </SafeAreaView>
+      <View
+        style={{alignItems: 'center', justifyContent: 'center', padding: 20}}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('TransactionScreen')}
+          style={{
+            backgroundColor: '#fa4c64',
+            paddingHorizontal: 20,
+            paddingVertical: 15,
+            borderRadius: 10,
+            width: 300,
+          }}>
+          <Text style={{color: '#fff', textAlign: 'center'}}>
+            Buat Transaksi
+          </Text>
+        </TouchableOpacity>
+      </View>
       <Modal
         animationType="slide"
         transparent={true}

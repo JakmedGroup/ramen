@@ -108,7 +108,13 @@ const OutletScreen = ({navigation}: {navigation: any}) => {
             borderColor: '#ccc',
           }}
         /> */}
-        <Text style={{fontSize: 18, fontWeight: '700', textAlign: 'center'}}>
+        <Text
+          style={{
+            fontSize: 18,
+            fontWeight: '700',
+            textAlign: 'center',
+            color: '#000',
+          }}>
           <Icon name="store" style={{marginRight: 20}} size={20} /> Outlet Abang
           Ramen
         </Text>
