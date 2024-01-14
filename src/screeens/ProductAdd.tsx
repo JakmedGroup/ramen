@@ -65,16 +65,7 @@ const ProductAdd = ({navigation}: {navigation: any}) => {
             borderColor: '#ccc',
           }}
         />
-        <TextInput
-          placeholder="Keterangan Produk"
-          style={{
-            marginVertical: 10,
-            padding: 10,
-            borderRadius: 5,
-            borderWidth: 1,
-            borderColor: '#ccc',
-          }}
-        />
+
         <TextInput
           placeholder="Harga Produk"
           style={{

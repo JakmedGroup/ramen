@@ -37,12 +37,15 @@ const Item = ({name, image, qty, price}: ItemProps) => (
       style={{
         fontSize: 9,
         textAlign: 'center',
+        color: '#000',
         fontWeight: '700',
         marginTop: 10,
       }}>
       Chicken Soyu
     </Text>
-    <Text style={{fontWeight: '700', textAlign: 'center'}}>Rp42.000</Text>
+    <Text style={{fontWeight: '700', textAlign: 'center', color: '#000'}}>
+      Rp42.000
+    </Text>
   </View>
 );
 const ProductScreen = ({navigation}: {navigation: any}) => {
@@ -68,12 +71,6 @@ const ProductScreen = ({navigation}: {navigation: any}) => {
     },
     {
       name: '2023-10-04',
-      image: '../assets/images/products/ramen-1.jpg',
-      qty: 2,
-      price: 200000,
-    },
-    {
-      name: '2023-10-05',
       image: '../assets/images/products/ramen-1.jpg',
       qty: 2,
       price: 200000,
@@ -121,7 +118,7 @@ const ProductScreen = ({navigation}: {navigation: any}) => {
               />
             </View>
           )}
-          style={{height: Dimensions.get('window').height / 1.7}}
+          style={{height: Dimensions.get('window').height / 1.9}}
         />
       </SafeAreaView>
       <View

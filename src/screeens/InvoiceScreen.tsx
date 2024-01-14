@@ -40,7 +40,7 @@ const InvoiceScreen: React.FC<Props> = ({
             style={{width: 90, height: 90}}
           />
           <Text style={{fontSize: 20, fontWeight: '700'}}>Abang Ramen</Text>
-          <Text style={{textAlign: 'center', marginBottom: 10}}>
+          <Text style={{textAlign: 'center', color: '#000', marginBottom: 10}}>
             Jl. Raya Bambu Apus No. 49A RT003/RW03, Bambu Apus, Cipayung,
             Jakarta Timur
           </Text>
@@ -212,7 +212,12 @@ const InvoiceScreen: React.FC<Props> = ({
           </View>
           <View>
             <Text
-              style={{textAlign: 'center', marginTop: 25, fontWeight: '700'}}>
+              style={{
+                textAlign: 'center',
+                color: '#000',
+                marginTop: 25,
+                fontWeight: '700',
+              }}>
               Terima kasih atas kunjungan anda
             </Text>
           </View>

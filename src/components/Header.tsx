@@ -7,15 +7,16 @@ function Header() {
         width: width,
         backgroundColor: '#fff',
         elevation: 1,
-        height: 55,
+        height: 100,
         padding: 15,
-        flexDirection: 'row',
       }}>
       <Image
         source={require('../assets/icons/abang_ramen.png')}
-        style={{width: 30, height: 30, marginRight: 15}}
+        style={{width: 60, height: 60, marginRight: 15}}
       />
-      <Text style={{fontSize: 17, fontWeight: '700'}}>Abang Ramen</Text>
+      <Text style={{fontSize: 17, fontWeight: '700', color: '#000'}}>
+        Abang Ramen
+      </Text>
     </View>
   );
 }
